@@ -5,14 +5,14 @@
 # Replace the baseurl with the name of this repository. For example, if the repository is named
 # "my-site-repository", then update the baseurl like so:
 # baseurl: "/my-site-repository"
-baseurl: "/open-sdg-site-starter"
+baseurl: "/open-sdg-streamlined-qs-site"
 # In the next few items, replace "open-sdg" with the name of your GitHub
 # organization, and "open-sdg-data-starter" with the name of your data repository.
-remote_data_prefix: "https://open-sdg.org/open-sdg-data-starter"
+remote_data_prefix: "https://lucygwilliamadmin.github.io/open-sdg-streamlined-qs-data"
 # URL for the "Edit Data" button on indicators.
-data_edit_url: http://prose.io/#open-sdg/open-sdg-data-starter/edit/develop/data/indicator_[id].csv
+data_edit_url: http://prose.io/#lucygwilliamadmin/open-sdg-streamlined-qs-data/edit/develop/data/indicator_[id].csv
 # URL for the "Edit Metadata" button on indicators.
-metadata_edit_url: http://prose.io/#open-sdg/open-sdg-data-starter/edit/develop/meta/[id].md
+metadata_edit_url: http://prose.io/#lucygwilliamadmin/open-sdg-streamlined-qs-data/edit/develop/meta/[id].md
 #
 # The list of languages that are translated. The first one is the default.
 languages:
