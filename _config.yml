@@ -5,14 +5,14 @@
 # Replace the baseurl with the name of this repository. For example, if the repository is named
 # "my-site-repository", then update the baseurl like so:
 # baseurl: "/my-site-repository"
-baseurl: "/open-sdg-streamlined-qs-site"
+baseurl: "/open-sdg-site-starter"
 # In the next few items, replace "open-sdg" with the name of your GitHub
 # organization, and "open-sdg-data-starter" with the name of your data repository.
-remote_data_prefix: "https://lucygwilliamadmin.github.io/open-sdg-streamlined-qs-data"
+remote_data_prefix: "https://open-sdg.github.io/open-sdg-data-starter"
 # URL for the "Edit Data" button on indicators.
-data_edit_url: http://prose.io/#lucygwilliamadmin/open-sdg-streamlined-qs-data/edit/develop/data/indicator_[id].csv
+data_edit_url: http://prose.io/#open-sdg/open-sdg-data-starter/edit/develop/data/indicator_[id].csv
 # URL for the "Edit Metadata" button on indicators.
-metadata_edit_url: http://prose.io/#lucygwilliamadmin/open-sdg-streamlined-qs-data/edit/develop/meta/[id].md
+metadata_edit_url: http://prose.io/#open-sdg/open-sdg-data-starter/edit/develop/meta/[id].md
 #
 # The list of languages that are translated. The first one is the default.
 languages:
@@ -36,8 +36,20 @@ environment: staging
 create_indicators:
   layout: indicator
 create_goals:
-  layout: goal
-create_pages: true
+  layout: goal-by-target-vertical
+create_pages:
+  pages:
+    - folder: /
+      layout: frontpage-alt
+    - folder: /goals
+      layout: goals
+    - folder: /reporting-status
+      layout: reportingstatus
+    - filename: indicators.json
+      folder: /
+      layout: indicator-json
+    - folder: /search
+      layout: search
 
 analytics:
   ga_prod: ''
@@ -57,15 +69,31 @@ country:
   name: Australia
   adjective: Australian
 
-# Optionally uncomment and update the settings below to control the frontpage heading and instructions.
-#frontpage_heading: Australian data for Sustainable Development Goal indicators
-#frontpage_instructions: Click on each goal, or <span id="jump-to-search"><a>search</a></span>, for Australian statistics for Sustainable Development Goal global indicators.
-
 # Optionally set a title/body for the frontpage banner. The defaults below point to a standard
 # translation, but feel free to change it as needed.
 frontpage_introduction_banner:
   title: frontpage.intro_title
   description: frontpage.intro_body
+
+frontpage_goals_grid:
+  title: Our data for Sustainable Development Goal indicators
+  description: Click on each goal for our Sustainable Development Goal global indicator data.
+
+frontpage_cards:
+  - title: frontpage.download_all
+    include: components/download-all-data.html
+  - title: Lorem ipsum
+    content: |
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi mollis
+      cursus est sed dapibus.
+    button_label: Read more
+    button_link: https://example.com
+  - title: Nam vestibulum
+    content: |
+      Nam vestibulum, purus quis porttitor imperdiet, nisl sem mollis nisl, a
+      interdum risus enim vitae tortor. Donec feugiat accumsan rutrum.
+    button_label: Read more
+    button_link: https://example.com
 
 # Pages
 collections:
@@ -83,8 +111,10 @@ collections:
 # Menu
 menu:
   # Use these to customise the main navigation.
-  - path: /reporting-status
+  - path: /goals
     # The "translation_key" refers to the key in the SDG Translations repository.
+    translation_key: general.goals
+  - path: /reporting-status
     translation_key: menu.reporting_status
   - path: /about
     translation_key: menu.about
@@ -111,7 +141,7 @@ non_global_metadata: indicator.national_metadata
 
 # Set a base for all goal image URLs. Note that the full goal image path will be
 # the base below, completed with: /[language]/[number].png (eg, /fr/6.png).
-goal_image_base: https://open-sdg.org/sdg-translations/assets/img/goals
+goal_image_base: https://open-sdg.github.io/sdg-translations/assets/img/goals
 
 # Tell Jekyll to use the Remote Theme plugin.
 plugins:
